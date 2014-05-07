@@ -50,11 +50,11 @@ The following is some [Sage](http://sagemath.org/) code that will simulate the p
         """
         Defines a function that will simulate N points
         """
-        points = [random() , random()] for k in range(N)]  # Create all our points
+        points = [[random() , random()] for k in range(N)]  # Create all our points
         pointsundercurve = [k for k in points if 1 - k[0] ^ 2  >= k[1]]  #  Count the ones that are in the circle
         p = list_plot(pointsundercurve, color='blue')  # Plot the ones in the circle in blue
         p += list_plot([k for k in points if k not in pointsundercurve], color='black')  # Plot the others in black
         p.show()  # Show the plot
-        return len(pointsincircle) / N  # Return the approximated value of pi
+        return len(pointsundercurve) / N  # Return the approximated value of pi
 
     simpoints(1000)  # Run the above for 1000 points
